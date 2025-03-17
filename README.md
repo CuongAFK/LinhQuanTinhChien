@@ -1,63 +1,93 @@
-LinhQuanTinhChien - Giao Diện Game Liên Quân (AoV)
+# LinhQuanTinhChien - Giao Diện Game Liên Quân (AoV)
 
-🚀 Giới thiệu
-Lĩnh Quân Tinh Chiến là một dự án giao diện game lấy ý tưởng và hình ảnh từ game Liên Quân Mobile (Arena of Valor - AoV). Dự án được phát triển bằng Electron, Node.js, Bootstrap 5 và có thể build trực tiếp thành ứng dụng nhờ Electron.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Built with Electron](https://img.shields.io/badge/Built%20with-Electron-blueviolet.svg)](https://www.electronjs.org/)
+[![Uses Node.js](https://img.shields.io/badge/Uses-Node.js-green.svg)](https://nodejs.org/)
+[![Bootstrap 5](https://img.shields.io/badge/Bootstrap-5-purple.svg)](https://getbootstrap.com/)
 
-![Giao diện game](https://github.com/CuongAFK/Github-Upload-Images/blob/main/Home_LinhQuanTinhChien.png)
+🚀 **Khám phá thế giới Liên Quân trên desktop với LinhQuanTinhChien!** 🚀
 
-🎮 Tính năng nổi bật
-✅ Giao diện đồ họa bắt mắt với thiết kế lấy cảm hứng từ Liên Quân.
-✅ Âm thanh sống động với nhạc nền:
-  🎵 Field of Memories - Waterflame (YouTube)
-  🎵 Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser (YouTube)
-✅ Hiệu ứng âm thanh click, hình ảnh cursor độc đáo tạo trải nghiệm người dùng chân thực.
-✅ Hỗ trợ build thành ứng dụng độc lập với Electron.
+**LinhQuanTinhChien** là dự án giao diện game desktop được lấy cảm hứng từ tựa game MOBA đình đám **Liên Quân Mobile (Arena of Valor - AoV)**. Dự án được xây dựng bằng **Electron, Node.js, Bootstrap 5** và có khả năng đóng gói thành ứng dụng độc lập nhờ Electron, mang đến trải nghiệm Liên Quân hoàn toàn mới trên máy tính của bạn.
 
+![Giao diện game LinhQuanTinhChien](https://github.com/CuongAFK/Github-Upload-Images/blob/main/Home_LinhQuanTinhChien.png)
 
-⚙️ Cài đặt & Chạy Dự Án
-1️⃣ Cài đặt Node.js & Electron
-Trước khi chạy dự án, bạn cần cài đặt Node.js và Electron.
-🔹 Tải Node.js tại 👉 nodejs.org🔹 Sau khi cài đặt Node.js, mở terminal và chạy lệnh sau để cài Electron:
-npm install -g electron
+## 🎮 Tính năng nổi bật
 
-2️⃣ Clone dự án
-Mở terminal hoặc CMD và chạy lệnh:
-git clone https://github.com/Cuongafk/LinhQuanTinhChien.git
-cd LinhQuanTinhChien
+* ✅ **Giao diện đậm chất Liên Quân:** Thiết kế đồ họa tỉ mỉ, mang đậm phong cách quen thuộc của Arena of Valor.
+* 🎵 **Âm thanh sống động:**
+    * **Nhạc nền:**
+        * [Field of Memories - Waterflame](https://www.youtube.com/watch?v=j9vMc_wmcjA) (YouTube)
+        * [Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser](https://www.youtube.com/watch?v=xyDkyw6Ce9s) (YouTube)
+    * **Hiệu ứng âm thanh:** Click chuột, tương tác... tạo cảm giác chân thực.
+* ✨ **Trải nghiệm người dùng độc đáo:** Cursor hình ảnh tùy chỉnh, hiệu ứng chuyển động mượt mà.
+* 📦 **Build ứng dụng độc lập:** Dễ dàng đóng gói thành ứng dụng desktop (.exe) với Electron.
 
-3️⃣ Cài đặt dependencies
-npm install
+## ⚙️ Hướng dẫn cài đặt và chạy
 
-4️⃣ Chạy ứng dụng
-npm start
-Ứng dụng sẽ mở cửa sổ giao diện game trên nền Electron.
-🖥️ Build Ứng Dụng Thành File .exe (Windows)
-Nếu bạn muốn build ứng dụng thành file .exe để chạy độc lập trên Windows, hãy chạy lệnh:
-npm run build
-Sau khi build xong, file .exe sẽ nằm trong thư mục dist/.
+**Để trải nghiệm LinhQuanTinhChien trên máy tính của bạn, hãy làm theo các bước sau:**
 
+### 1. **Cài đặt Node.js và Electron**
 
-🛠 Công Nghệ Sử Dụng
+* **Node.js:**
+    * Truy cập [nodejs.org](https://nodejs.org/) để tải và cài đặt phiên bản Node.js phù hợp với hệ điều hành của bạn.
+* **Electron:**
+    * Mở **Terminal** (hoặc **CMD** trên Windows) và chạy lệnh sau sau khi cài đặt Node.js:
+    ```bash
+    npm install -g electron
+    ```
 
-Mô tả
-🎮 Electron
-Chạy giao diện game trên nền ứng dụng desktop
+### 2. **Clone dự án**
 
-🖥️ Node.js
-Xử lý backend và logic ứng dụng
+* Sử dụng **Terminal** hoặc **CMD** để clone dự án từ GitHub:
+    ```bash
+    git clone https://github.com/Cuongafk/LinhQuanTinhChien.git
+    cd LinhQuanTinhChien
+    ```
 
-🎨 Bootstrap 5
-Tạo giao diện đẹp
+### 3. **Cài đặt các dependencies**
 
-🎬 CSS & JavaScript
-Hiệu ứng hình ảnh, âm thanh và animation
+* Trong thư mục dự án **LinhQuanTinhChien**, chạy lệnh:
+    ```bash
+    npm install
+    ```
 
-🤝 Đóng góp & Liên hệ
-Nếu bạn muốn đóng góp hoặc gặp vấn đề khi cài đặt, hãy liên hệ qua GitHub Issues hoặc email của nhóm phát triển.
-📌 GitHub: LinhQuanTinhChien📧 Email: programafk.vn@gmail.com
+### 4. **Khởi chạy ứng dụng**
 
-🎮 Chúc bạn trải nghiệm game vui vẻ! 🚀
+* Tiếp tục trong **Terminal** hoặc **CMD**, chạy lệnh:
+    ```bash
+    npm start
+    ```
+    Ứng dụng LinhQuanTinhChien sẽ mở ra trên cửa sổ Electron.
 
-🎥 Xem video demo tại đây
-🎥 [Xem video demo](https://github.com/CuongAFK/Github-Upload-Images/blob/main/LinhQuanTinhChien_V1.mp4).
+## 🖥️ Build ứng dụng thành file .exe (Windows)
+
+* Để tạo file thực thi **.exe** chạy độc lập trên Windows, sử dụng lệnh:
+    ```bash
+    npm run build
+    ```
+    File **.exe** sẽ được tạo trong thư mục `dist/`.
+
+## 🛠️ Công nghệ sử dụng
+
+* **🎮 Electron:** Nền tảng để xây dựng ứng dụng desktop đa nền tảng, cho phép chạy giao diện game trên máy tính.
+* **🖥️ Node.js:** Môi trường runtime JavaScript phía máy chủ, xử lý logic ứng dụng và backend.
+* **🎨 Bootstrap 5:** Framework CSS giúp xây dựng giao diện người dùng đẹp và responsive một cách nhanh chóng.
+* **🎬 CSS & JavaScript:** Ngôn ngữ lập trình web để tạo hiệu ứng hình ảnh, âm thanh, animation và tương tác người dùng.
+
+## 🤝 Đóng góp và Liên hệ
+
+Mọi đóng góp ý kiến, báo lỗi hoặc đề xuất tính năng đều được hoan nghênh!
+
+* **📌 GitHub Issues:** [LinhQuanTinhChien Issues](https://github.com/Cuongafk/LinhQuanTinhChien/issues)
+* **📧 Email:** programafk.vn@gmail.com
+
+## 🎮 Chúc bạn có những phút giây trải nghiệm LinhQuanTinhChien thật vui vẻ! 🚀
+
+## 🎥 Video demo
+
+[![Xem video demo trên YouTube](https://img.youtube.com/vi/YOUR_YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_YOUTUBE_VIDEO_ID)
+
+**[Xem video demo trực tiếp](https://github.com/CuongAFK/Github-Upload-Images/blob/main/LinhQuanTinhChien_V1.mp4)** (Nếu link trên không hoạt động)
+
+---
 
