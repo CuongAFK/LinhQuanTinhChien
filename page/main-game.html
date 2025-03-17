@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lĩnh Quân Tinh Chiến</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/input.css">
+  <link rel="stylesheet" href="../style/click.css">
+  <link rel="stylesheet" href="../style/cursor.css">
+  <link rel="icon" href="../assets/imgs/icon.ico">
+</head>
+
+
+
+<body onclick="playClickSound()">
+  <!-- Video background -->
+  <div class="video-container">
+    <video autoplay loop muted id="bgVideo">
+      <source src="../assets/videos/Tel.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Audio file -->
+  <audio id="click-sound" src="../assets/sounds/mixkit-sci-fi-interface-robot-click-901.wav"></audio>
+
+  <!-- Nhạc nền -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="../assets/audios/Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser (youtube).mp3"
+      type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Container chính -->
+  <div class="container-game d-flex flex-column text-center">
+
+    <!-- Header -->
+    <div class="container-header">
+      <div class="row mb-3">
+        <div class="col-7 d-flex align-items-center">
+          <img src="../assets/avatar/avatar.png" alt="Avatar" class="avatar me-2" id="avatar" data-bs-toggle="modal"
+            data-bs-target="#editProfileModal">
+          <div>
+            <div class="name">NewPlayer</div>
+          </div>
+        </div>
+
+
+
+        <div class="col-2 text-center">
+          <div class="d-flex gap-0 justify-content-center align-content-center">
+            <!-- Tín dụng -->
+            <div class="parallelogram">
+              <img src="../assets/imgs/Tin_Dung.png" alt="Tín dụng">
+              <input type="text" value="1000" readonly>
+            </div>
+            <!-- Quân huy -->
+            <div class="parallelogram">
+              <img src="../assets/imgs/Quan_Huy.png" alt="Quân huy">
+              <input type="text" value="500" readonly>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-3 text-end">
+          <div class="d-flex ">
+            <!-- Thư -->
+            <button class="status-item me-3">
+              <i class="fas fa-envelope"></i> <!-- Icon Thư -->
+              <i class="fa-solid fa-user-group"></i>
+            </button>
+            <!-- Cài Đặt -->
+            <button class="status-item me-3" data-bs-toggle="modal" data-bs-target="#settingsModal">
+              <i class="fas fa-cog"></i> <!-- Icon Cài đặt -->
+            </button>
+            <!-- WiFi/FPS -->
+            <div class="status-item me-3">
+              <i class="fas fa-wifi text-danger"></i>
+              <span class="status-text">999+</span> <!-- Ping thấp -->
+            </div>
+            <!-- Pin -->
+            <div class="status-item">
+              <i class="fas fa-battery-full"></i> Pin: 100%
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Modal chỉnh âm lượng -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settingsModalLabel">Cài đặt âm thanh</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Slider chỉnh âm lượng nhạc nền -->
+        <div class="mb-3">
+          <label for="bgMusicVolume" class="form-label">Âm lượng nhạc nền</label>
+          <input type="range" id="bgMusicVolume" class="form-range" min="0" max="1" step="0.01" value="0.5">
+        </div>
+        <!-- Slider chỉnh âm lượng âm thanh click -->
+        <div class="mb-3">
+          <label for="clickSoundVolume" class="form-label">Âm lượng hiệu ứng</label>
+          <input type="range" id="clickSoundVolume" class="form-range" min="0" max="1" step="0.01" value="1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <!-- Modal chỉnh sửa thông tin -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+      aria-hidden="true" style="z-index: 10;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="editProfileForm">
+              <div class="mb-3">
+                <!-- <input type="text" class="form-control" id="inputName" value="" placeholder="Nhập tên của bạn"> -->
+                <label for="inputName" class="form-label">Tên người chơi</label>
+                <span class='gradient animated wrapper w-100'>
+                  <input class='input animated w-100' type='text' id="inputName" value="" value="NewPlayer"
+                    placeholder="Nhập tên của bạn" />
+                </span>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Chọn avatar</label>
+                <div class="avatar-options d-flex flex-wrap gap-2">
+                  <img src="../assets/avatar/avatar1.jpg" alt="Avatar 1" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar1.jpg">
+                  <img src="../assets/avatar/avatar2.jpg" alt="Avatar 2" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar2.jpg">
+                  <img src="../assets/avatar/avatar3.jpg" alt="Avatar 3" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar3.jpg">
+                  <img src="../assets/avatar/avatar4.jpg" alt="Avatar 4" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar4.jpg">
+                  <img src="../assets/avatar/avatar5.jpg" alt="Avatar 5" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar5.jpg">
+                  <img src="../assets/avatar/avatar6.jpg" alt="Avatar 6" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar6.jpg">
+                  <img src="../assets/avatar/avatar7.jpg" alt="Avatar 7" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar7.jpg">
+                  <img src="../assets/avatar/avatar8.jpg" alt="Avatar 8" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar8.jpg">
+                  <img src="../assets/avatar/avatar9.jpg" alt="Avatar 9" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar9.jpg">
+                  <img src="../assets/avatar/avatar10.jpg" alt="Avatar 10" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar10.jpg">
+                  <img src="../assets/avatar/avatar11.jpg" alt="Avatar 11" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar11.jpg">
+                  <img src="../assets/avatar/avatar12.jpg" alt="Avatar 12" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar12.jpg">
+                  <img src="../assets/avatar/avatar13.jpg" alt="Avatar 13" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar13.jpg">
+                  <img src="../assets/avatar/avatar14.jpg" alt="Avatar 14" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar14.jpg">
+                  <img src="../assets/avatar/avatar15.jpg" alt="Avatar 15" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar15.jpg">
+                  <img src="../assets/avatar/avatar16.jpg" alt="Avatar 16" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar16.jpg">
+                  <img src="../assets/avatar/avatar17.jpg" alt="Avatar 17" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar17.jpg">
+                  <img src="../assets/avatar/avatar18.jpg" alt="Avatar 18" class="avatar-option"
+                    data-avatar="../assets/avatar/avatar18.jpg">
+
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="button-89-red fw-bold" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="button-89 fw-bold" id="saveProfile">Lưu thay đổi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="container-body">
+      <div class="row flex-grow-1 mb-3">
+        <div class="col-3 d-flex flex-column px-3 mt-2">
+          <!-- Danh sách bạn bè -->
+          <div class="friend-list p-3">
+            <div class="friend-header d-flex align-items-center mb-3">
+              <i class="fas fa-users me-2" style="font-size: 1.5rem; color: #00ff00;"></i>
+              <span>Chiến Hữu</span>
+              <span class="friend-count">(5/10 Trực Tuyến)</span>
+            </div>
+            <div class="friend-items">
+              <!-- Bạn bè online -->
+              <div class="friend-item online">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar15.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle online-status"></i>
+                </div>
+                <span class="friend-name">sKuraiシ</span>
+              </div>
+              <div class="friend-item online">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar1.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle online-status"></i>
+                </div>
+                <span class="friend-name">✿Δ🄼๖ۣۜE🅾ᴖᴥᴖ✿ᑕᑌTEシ</span>
+              </div>
+              <div class="friend-item online">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar2.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle online-status"></i>
+                </div>
+                <span class="friend-name">『CT』┊ ThầyÔngNội 모</span>
+              </div>
+              <div class="friend-item online">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar4.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle online-status"></i>
+                </div>
+                <span class="friend-name">꧁༺🅛🅘🅝🅗 ༻꧂</span>
+              </div>
+              <div class="friend-item online">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar17.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle online-status"></i>
+                </div>
+                <span class="friend-name">亗ᴅɪɴᴏɞ🦕ʚꜱɑƙυɾɑ︵²ᵏ³</span>
+              </div>
+              <div class="friend-item offline">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar7.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle offline-status"></i>
+                </div>
+                <span class="friend-name">Emily Davis</span>
+              </div>
+              <!-- Bạn bè offline -->
+              <div class="friend-item offline">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar5.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle offline-status"></i>
+                </div>
+                <span class="friend-name">ɴнιღcôɴԍღтúᴀ</span>
+              </div>
+              <div class="friend-item offline">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar12.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle offline-status"></i>
+                </div>
+                <span class="friend-name">Gái Nga Best</span>
+              </div>
+              <div class="friend-item offline">
+                <div class="friend-avatar-wrapper">
+                  <img src="../assets/avatar/avatar11.jpg" alt="avatar" class="friend-avatar">
+                  <i class="fas fa-circle offline-status"></i>
+                </div>
+                <span class="friend-name">JACK đa ta 10CU</span>
+              </div>
+            </div>
+          </div>
+          <!-- Kênh Chat -->
+          <div class="chat-channel p-2">
+            <div class="chat-header">Kênh Chat</div>
+            <div class="chat-messages flex-grow-1 overflow-auto">
+              <p class="message">Chào mừng bạn đến với kênh chat!</p>
+            </div>
+            <div class="chat-input mt-2">
+              <input type="text" class="form-control" placeholder="Nhập tin nhắn...">
+            </div>
+          </div>
+        </div>
+
+        <div class="col"></div>
+
+        <!-- Cột bên phải -->
+        <div class="col-3 gap-3">
+          <!-- Banner sự kiện -->
+          <div id="eventBannerCarousel" class="carousel slide event-banner mb-2" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#eventBannerCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#eventBannerCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#eventBannerCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../assets/imgs/panner_even.jpg" class="d-block w-100 banner-image" alt="Banner 1">
+              </div>
+              <div class="carousel-item">
+                <img src="../assets/imgs/panner_even2.jpg" class="d-block w-100 banner-image" alt="Banner 2">
+              </div>
+              <div class="carousel-item">
+                <img src="../assets/imgs/panner_even3.jpg" class="d-block w-100 banner-image" alt="Banner 3">
+              </div>
+            </div>
+
+
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventBannerCarousel"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventBannerCarousel"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!-- Mục sự kiện -->
+          <div class="event-list rounded bg-danger mb-2">
+            <img src="../assets/imgs/panner1.jpg" alt="Event" class="event-image">
+          </div>
+
+
+          <!-- Nạp thẻ -->
+          <div class="recharge p-3">
+            <img src="../assets/imgs/panner_nap_the.png" alt="Recharge" class="recharge-image">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <div class="row mt-auto footer">
+      <div class="col-9 ">
+        <hr class="custom-hr">
+        <div class="d-flex justify-content-between mb-auto mt-2 ctn-menu">
+          <div class="menu-item">
+            <i class="fas fa-store"></i> Shop
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-box-open"></i> Túi đồ
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-user"></i> Tướng
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-shield-alt"></i> Trang bị
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-tasks"></i> Nhiệm vụ
+          </div>
+        </div>
+      </div>
+      <div class="col-3 d-flex justify-content-center up-btn">
+        <!-- <button class=" ">
+          <i class="fas fa-graduation-cap"></i> Huấn luyện
+        </button> -->
+        <!-- <button class="start">
+          <i class="ri-sword-line"></i> Chiến đấu
+        </button> -->
+        <button class="button"><i class="ri-sword-line"></i> Chiến đấu <i class="ri-sword-line"></i></button>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+</body>
+
+
+
+
+
+<!-- <script src="../js/cursor.js"></script> -->
+<script src="../js/effect.js"></script>
+<script src="../js/main-game.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+  integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</html>

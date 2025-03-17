@@ -1,0 +1,673 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  /* Loại bỏ thanh cuộn */
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#bgVideo {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  /* Video sẽ bao phủ toàn bộ */
+}
+
+.content-container {
+  position: relative;
+  color: white;
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Arial", sans-serif;
+  color: white;
+}
+
+
+.container-game {
+  width: 100%;
+  height: 100vh;
+  /* Chiều cao toàn bộ viewport */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* padding: 0.5em 3em; */
+  z-index: 2;
+
+}
+
+.container-header{
+  padding: 0.5em 3em 0;
+}
+
+.container-body{
+  padding: 0 3em;
+}
+
+
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border: 4mm ridge rgba(50, 220, 200, 0.6);
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+}
+
+
+.avatar:hover {
+  transform: scale(1.1);
+  /* Hiệu ứng phóng to khi hover */
+}
+
+
+
+.modal-backdrop {
+  --bs-backdrop-zindex: 1;
+}
+
+.avatar-options {
+  justify-content: space-around;
+}
+
+.avatar-option {
+  width: 100px;
+  height: auto;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.avatar-option:hover {
+  transform: scale(1.1);
+  /* Phóng to nhẹ khi hover */
+  border-color: gold;
+  /* Đổi viền vàng khi hover */
+}
+
+
+.avatar-option.selected {
+  border-color: limegreen;
+  /* Viền xanh lá khi được chọn */
+  transform: scale(1.2);
+}
+
+
+
+.name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.modal {
+  --bs-modal-margin: 5rem;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.599);
+
+}
+
+/* CSS */
+.button-89-red {
+  --b: 3px;
+  /* border thickness */
+  --s: .45em;
+  /* size of the corner */
+  --color-red: #ff0800;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color-red);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color-red) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89-red:hover,
+.button-89-red:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color-red);
+  outline-offset: .05em;
+}
+
+.button-89-red:active {
+  background: var(--color-red);
+  color: #fff;
+}
+
+/* CSS */
+.button-89 {
+  --b: 3px;
+  /* border thickness */
+  --s: .45em;
+  /* size of the corner */
+  --color: #00fd04;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
+
+.parallelogram {
+  position: relative;
+  width: 120px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Màu nền mờ */
+  border: 3px solid #00000022;
+  /* Viền nâu */
+  transform: skew(-20deg);
+  display: flex;
+}
+
+.parallelogram img {
+  max-width: 40px;
+  /* Kích thước hình ảnh */
+  height: auto;
+  margin-left: 10px;
+  /* Canh lề cho ảnh */
+  transform: skew(20deg);
+  /* Làm ảnh không bị méo bởi khung bình hành */
+}
+
+.parallelogram input {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  transform: skew(20deg);
+  /* Điều chỉnh text trở về đúng góc */
+  pointer-events: none;
+  /* Ngăn chỉnh sửa giá trị */
+  font-weight: bold;
+}
+
+
+.status-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  /* Nền mờ */
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.status-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+  /* Hiệu ứng pha nền */
+}
+
+.status-item i {
+  font-size: 18px;
+}
+
+.status-item .status-text {
+  font-weight: bold;
+  color: #ff0000;
+  /* Màu đỏ chót cho ping cao */
+}
+
+.text-danger {
+  color: #ff0000 !important;
+  /* Màu đỏ cho WiFi */
+}
+
+/* Điều chỉnh khoảng cách giữa các phần tử */
+.d-flex .status-item:not(:last-child) {
+  margin-right: 15px;
+}
+
+/* General Body Layout */
+.row.flex-grow-1 {
+  display: flex;
+  flex-grow: 1;
+  /* Chiếm toàn bộ không gian còn lại */
+}
+
+.friend-list {
+  overflow: hidden;
+  /* Ẩn nội dung tràn */
+  background: linear-gradient(to right, #1a1d29, transparent);
+}
+
+.friend-items {
+  padding: 1em;
+  overflow-y: auto;
+  /* Cuộn khi nội dung dài */
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  max-height: 400px;
+  /* Giới hạn chiều cao */
+  scrollbar-width: thin;
+  /* Thanh cuộn mỏng */
+  scrollbar-color: #444 #222;
+  direction: rtl;
+  /* Đảo chiều để thanh cuộn nằm bên trái */
+}
+
+.friend-items>* {
+  direction: ltr;
+  /* Nội dung bên trong giữ nguyên chiều từ trái sang phải */
+}
+
+.friend-items::-webkit-scrollbar {
+  width: 8px;
+  /* Đặt thanh cuộn nằm bên trái */
+}
+
+.friend-items::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.friend-items::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+
+/* Header Danh sách bạn bè */
+.friend-header {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.friend-count {
+  color: #00ff00;
+  /* Màu xanh biểu thị số online */
+}
+
+/* Item bạn bè */
+.friend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  /* Hiển thị con trỏ chọn */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  /* Hiệu ứng mượt mà khi hover */
+
+}
+
+.friend-item:hover {
+  transform: scale(1.05);
+  /* Phóng to nhẹ */
+}
+
+/* Avatar */
+.friend-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  object-fit: cover;
+}
+
+.friend-item.online {
+  background: rgba(0, 128, 255, 0.2);
+  /* Màu nền khi online */
+}
+
+.friend-item.offline {
+  background: rgba(0, 0, 0, 0.2);
+  /* Màu nền khi offline */
+}
+
+.friend-item.offline img {
+  filter: grayscale(80%) brightness(60%);
+  /* Ảnh tối lại */
+}
+
+.friend-name {
+  flex-grow: 1;
+}
+
+/* Khung chứa avatar và icon trạng thái */
+.friend-avatar-wrapper {
+  position: relative;
+}
+
+/* Biểu tượng trạng thái online/offline */
+.online-status,
+.offline-status {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-size: 0.5rem;
+  color: #00ff0077;
+  /* Màu xanh cho online */
+}
+
+.offline-status {
+  color: rgba(255, 0, 0, 0.345);
+  /* Màu xám cho offline */
+}
+
+/* Chat Channel */
+.chat-channel {
+  display: flex;
+  flex-direction: column;
+  background: #1a1d29;
+  /* Nền xanh đen */
+  color: #fff;
+  padding: 1rem;
+}
+
+.chat-header {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  /* Cuộn tin nhắn nếu quá dài */
+}
+
+.chat-input input {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+/* Banner hình ảnh */
+.banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+.event-banner {
+  width: 100%;
+  height: 130px;
+  border-radius: 5px;
+  /* Hiển thị con trỏ chọn */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hiệu ứng hover */
+.event-banner:hover {
+  transform: scale(1.05);
+  /* Phóng to nhẹ */
+  filter: brightness(1.2);
+  /* Tăng độ sáng */
+
+
+}
+
+.event-banner,
+.event-list,
+.recharge {
+  overflow: hidden;
+  /* Ẩn nội dung tràn */
+}
+
+/* Mặc định ẩn controls */
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0; /* Ẩn nút */
+  pointer-events: none; /* Vô hiệu hóa click */
+  transition: opacity 0.3s ease; /* Hiệu ứng mượt khi hiện */
+}
+
+/* Hiển thị controls khi hover vào slider */
+.event-banner:hover .carousel-control-prev,
+.event-banner:hover .carousel-control-next {
+  opacity: 1; /* Hiện nút */
+  pointer-events: auto; /* Kích hoạt click */
+}
+
+/* Điều chỉnh chỉ báo indicator */
+.carousel-indicators {
+  opacity: 0; /* Ẩn chỉ báo */
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.event-banner:hover .carousel-indicators {
+  opacity: 1; /* Hiện chỉ báo khi hover */
+  pointer-events: auto;
+}
+
+.event-list {
+  border-radius: 10px; /* Bo góc */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Hiệu ứng mượt */
+}
+
+.event-list:hover {
+  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+.event-list .event-image {
+  transition: transform 0.3s ease; /* Hiệu ứng phóng to */
+}
+
+.event-list:hover .event-image {
+  transform: scale(1.1); /* Hình ảnh phóng to khi hover */
+}
+
+.recharge {
+  border-radius: 10px; /* Bo góc mềm mại */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+.recharge:hover {
+  transform: scale(1.05); /* Phóng to nhẹ khung khi hover */
+}
+
+.recharge .recharge-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Hiệu ứng phóng to của hình ảnh */
+}
+
+.recharge:hover .recharge-image {
+  transform: scale(1.1); /* Hình ảnh phóng to khi hover */
+}
+
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Khoảng cách giữa icon và text */
+  color: #fff;
+  font-size: 1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover {
+  transform: scale(1.1); /* Phóng to nhẹ khi hover */
+  color: #ffd700; /* Màu vàng nhấn */
+}
+
+.menu-item i {
+  font-size: 2rem; /* Kích thước icon */
+}
+
+
+button.menu-item {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+}
+
+button.menu-item i {
+  font-size: 2rem;
+}
+
+
+
+/* Footer styles */
+.footer {
+  width: 100%;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)); /* Nền xanh đen trong suốt dần lên */
+  color: white; /* Để chữ rõ hơn trên nền */
+  padding-bottom: 3rem;
+  margin: 0;
+  position: relative;
+  z-index: 5; /* Đảm bảo footer nổi trên các thành phần khác */
+}
+
+.ctn-menu{
+  padding: 0 3em 0;
+}
+
+
+
+/* Dòng kẻ hr */
+.custom-hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), gold, yellow, gold, rgba(0, 0, 0, 0)); /* Hiệu ứng mờ dần */
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 5;
+  opacity: 80%;
+  margin: 0;
+}
+
+/* Up button */
+.up-btn {
+  position: relative;
+  top: -60px; 
+  padding: 0 2rem;
+  z-index: 2; 
+}
+
+
+
+
+/* From Uiverse.io by Smit-Prajapati */ 
+.button {
+  /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
+  /* with hue-rotate color can be changed */
+  --main-color: rgb(255, 247, 0);
+  --main-bg-color: rgba(255, 212, 58, 0.81);
+  --pattern-color: rgba(255, 219, 56, 0.193);
+  /* border-radius: 10px; */
+  /* change this rotation value */
+  filter: hue-rotate(0deg);
+
+
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  background: radial-gradient(
+      circle,
+      var(--main-bg-color) 0%,
+      rgba(0, 0, 0, 0) 95%
+    ),
+    linear-gradient(var(--pattern-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+  background-size:
+    cover,
+    30px 30px,
+    30px 30px;
+  background-position:
+    center center,
+    center center,
+    center center;
+  border-image: radial-gradient(
+      circle,
+      var(--main-color) 0%,
+      rgba(0, 0, 0, 0) 100%
+    )2;
+  border-width: 2px 0 2px 0;
+  color: var(--main-color);
+  padding: 1rem 3rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: background-size 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-size:
+    cover,
+    10px 10px,
+    10px 10px;
+    filter: hue-rotate(-320deg);
+}
+.button:active {
+  filter: hue-rotate(180deg);
+}

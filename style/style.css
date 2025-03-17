@@ -1,0 +1,79 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Loại bỏ thanh cuộn */
+  }
+  
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    animation: fudge 1s ease-in-out alternate infinite;
+  }
+  
+  #bgVideo {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Video sẽ bao phủ toàn bộ */
+  }
+  
+  .content-container {
+    position: relative;
+    color: white;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* animation */
+
+  #screen-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 6; /* Đảm bảo che toàn bộ nội dung khác */
+    animation: flashEffect 1s ease-in-out forwards; /* Điều chỉnh thời gian và easing theo ý muốn */
+  }
+  
+  @keyframes flashEffect {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+  
+
+
+  #weather-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    pointer-events: none;
+    transition: background 2s ease-in-out; /* Dùng transition để làm mờ mượt mà */
+  }
+  
+ 

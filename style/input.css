@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/* create comma-separated list of gradient stops */
+/* THE BORDER */
+/* use a pseudoelement to scale the gradient horizontally so that colors are evenly distributed around the oblong input */
+.gradient {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.gradient::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  /* -1px to make up for a mysterious white gap that sometimes appears alongside the bottom edge in Chrome — to be investigated */
+  top: -365px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: conic-gradient(#ff1111, #ffff11, #11ff11, #11ffff, #1111ff, #ff11ff, #ff1111);
+  /* scaleX to distribute colors around the input;
+     change to whatever your aspect ratio is or whatever you like */
+     z-index: -1;
+}
+
+/* ANIMATED BORDER */
+.gradient.rotated::before {
+  background: conic-gradient(from 125deg, #ff1111, #ffff11, #11ff11, #11ffff, #1111ff, #ff11ff, #ff1111);
+}
+
+@keyframes rotate-gradient {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+  }
+  99.9999% {
+    transform: scale(1) rotate(360deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.gradient.animated::before {
+  animation: rotate-gradient 10s linear infinite;
+}
+
+
+
+/* ANIMATED INPUT BACKGROUND */
+/* arbitrary stops for varied effect */
+@keyframes slide {
+  0% {
+    background-position: 0%;
+  }
+  99.9999% {
+    background-position: 500%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+
+.input.animated {
+  background-image: repeating-linear-gradient(-65deg, rgba(255, 17, 17, 0.3), rgba(255, 17, 17, 0.3), rgba(255, 255, 17, 0.3), rgba(17, 255, 17, 0.3), rgba(17, 255, 255, 0.3), rgba(17, 17, 255, 0.3), rgba(255, 17, 255, 0.3), rgba(255, 17, 17, 0.3));
+  background-size: 500%;
+  animation: slide 35s linear infinite;
+}
+
+/* OTHER STYLING */
+.wrapper {
+  border-radius: 6px;
+  padding: 6px;
+  box-shadow: 1px 2px 7px 2px rgba(51, 51, 51, 0.75);
+}
+
+.input {
+  border-radius: 6px;
+  border: 1px solid #222;
+  background: #37323c;
+  color: #eee;
+  box-shadow: 0 0 8px rgba(17, 17, 17, 0.7) inset;
+  padding: 0.85em 1em;
+  font-size: 1em;
+}
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(238, 238, 238, 0.7) inset;
+}
+.input::-moz-placeholder {
+  opacity: 0.65;
+  color: #eee;
+}
+.input::placeholder {
+  opacity: 0.65;
+  color: #eee;
+}
+

@@ -1,0 +1,54 @@
+/* Tia lửa */
+/* Tia lửa (hình dẹp) */
+.spark {
+    position: absolute;
+    width: 10px; /* Chiều ngang dài hơn */
+    height: 2px; /* Chiều cao ngắn hơn */
+    border-radius: 50%; /* Bo tròn để tạo elip */
+    animation: spark-animation 4s ease-out forwards;
+    pointer-events: none;
+  
+    /* Ánh sáng Glow */
+    box-shadow: 0 0 5px 1px #ff9800, 0 0 15px 1px #ff4500, 0 0 25px 5px #ff2200;
+    z-index: 3;
+  }
+  
+  /* Animation tia lửa */
+  @keyframes spark-animation {
+    0% {
+      transform: rotate(var(--rotation)) translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(var(--rotation)) translate(var(--x), var(--y)) scale(0.3);
+      opacity: 0;
+    }
+  }
+  
+  
+  /* Hiệu ứng bùng nổ của pháo hoa */
+  .firework {
+    position: absolute;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #ff5722, #ff6d00, #f57f17);
+    pointer-events: none;
+    animation: firework-animation 0.5s forwards;
+    transform: scale(0);
+    z-index: 2;
+  }
+  
+  @keyframes firework-animation {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(5);
+      opacity: 0;
+    }
+  }
+  
+ 
+  

@@ -1,0 +1,48 @@
+body {
+    cursor: url('../assets/cursor/cursor_01.png') 8 6, auto;
+}
+
+.friend-item ,.carousel-item, .event-list, .recharge, a {
+    cursor: url('../assets/cursor/cursor_04.png'), pointer;
+}
+
+button, .menu-item, .avatar, .avatar-option { 
+    cursor: url('../assets/cursor/cursor_02.png'), pointer !important;
+}
+
+
+
+
+
+input[type="text"], textarea {
+    cursor: url('../assets/cursor/cursor_06.png') 8 6, text;
+}
+
+
+
+
+
+/* Đường ngang */
+/* .crosshair-horizontal,
+.crosshair-vertical {
+    position: fixed;
+    background-color: red;
+    pointer-events: none; 
+    z-index: 9999; 
+} */
+
+/* Đường ngang */
+/* .crosshair-horizontal {
+    height: 1px;
+    width: 100%;
+    top: 50%; 
+    left: 0;
+} */
+
+/* Đường dọc */
+/* .crosshair-vertical {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%; 
+} */
