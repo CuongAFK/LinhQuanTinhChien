@@ -4,6 +4,8 @@ Giới thiệu
 
 Lĩnh Quân Tinh Chiến là một dự án giao diện game lấy ý tưởng và hình ảnh từ game Liên Quân Mobile (Arena of Valor - AoV). Dự án được phát triển bằng Electron, Node.js, Bootstrap 5 và có thể build trực tiếp thành ứng dụng nhờ Electron.
 
+![Giao diện game](https://github.com/CuongAFK/Github-Upload-Images/blob/main/Home_LinhQuanTinhChien.png)
+
 Tính năng nổi bật
 
 Giao diện đồ họa bắt mắt với thiết kế lấy cảm hứng từ Liên Quân.
@@ -73,5 +75,5 @@ Nếu bạn muốn đóng góp hoặc gặp vấn đề khi cài đặt, hãy li
 
 🎮 Chúc bạn trải nghiệm game vui vẻ! 🚀
 
-![Giao diện game](https://github.com/CuongAFK/Github-Upload-Images/blob/main/Home_LinhQuanTinhChien.png)
+
 🎥 [Xem video demo](https://github.com/CuongAFK/Github-Upload-Images/blob/main/LinhQuanTinhChien_V1.mp4).
