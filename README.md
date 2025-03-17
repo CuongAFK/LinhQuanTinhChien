@@ -10,9 +10,9 @@ Giao diện đồ họa bắt mắt với thiết kế lấy cảm hứng từ L
 
 Âm thanh sống động với nhạc nền:
 
-Field of Memories - Waterflame (YouTube)
+Field of Memories - Waterflame
 
-Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser (YouTube)
+Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser
 
 Hiệu ứng âm thanh click và hình ảnh cursor độc đáo tạo trải nghiệm người dùng chân thực.
 
@@ -61,7 +61,7 @@ Electron - Chạy giao diện game trên nền ứng dụng desktop.
 
 Node.js - Xử lý backend và logic ứng dụng.
 
-Bootstrap 5 - Tạo giao diện đẹp và responsive.
+Bootstrap 5 - Tạo giao diện đẹp.
 
 CSS & JavaScript - Hiệu ứng hình ảnh, âm thanh và animation.
 
@@ -73,3 +73,5 @@ Nếu bạn muốn đóng góp hoặc gặp vấn đề khi cài đặt, hãy li
 
 🎮 Chúc bạn trải nghiệm game vui vẻ! 🚀
 
+![Giao diện game](https://github.com/CuongAFK/Github-Upload-Images/blob/main/Home_LinhQuanTinhChien.png)
+🎥 [Xem video demo](https://github.com/CuongAFK/Github-Upload-Images/blob/main/LinhQuanTinhChien_V1.mp4).
