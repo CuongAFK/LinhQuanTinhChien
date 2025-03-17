@@ -8,11 +8,12 @@ Lĩnh Quân Tinh Chiến là một dự án giao diện game lấy ý tưởng v
 
 🎮 Tính năng nổi bật
 
-✅ Giao diện đồ họa bắt mắt với thiết kế lấy cảm hứng từ Liên Quân.✅ Âm thanh sống động với nhạc nền:
-
-🎵 Field of Memories - Waterflame (YouTube)
-
-🎵 Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser (YouTube)✅ Hiệu ứng âm thanh click, hình ảnh cursor độc đáo tạo trải nghiệm người dùng chân thực.✅ Hỗ trợ build thành ứng dụng độc lập với Electron.
+✅ Giao diện đồ họa bắt mắt với thiết kế lấy cảm hứng từ Liên Quân.
+✅ Âm thanh sống động với nhạc nền:
+  🎵 Field of Memories - Waterflame (YouTube)
+  🎵 Gathering Shadows - Epic Orchestral Music - Denny Schneidemesser (YouTube)
+✅ Hiệu ứng âm thanh click, hình ảnh cursor độc đáo tạo trải nghiệm người dùng chân thực.
+✅ Hỗ trợ build thành ứng dụng độc lập với Electron.
 
 ⚙️ Cài đặt & Chạy Dự Án
 
