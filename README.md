@@ -24,6 +24,8 @@
 
 ## ⚙️ Hướng dẫn cài đặt và chạy
 
+![Giao diện game LinhQuanTinhChien](https://github.com/CuongAFK/Github-Upload-Images/blob/main/LinhquanTinhChien2_V1.png)
+
 **Để trải nghiệm LinhQuanTinhChien trên máy tính của bạn, hãy làm theo các bước sau:**
 
 ### 1. **Cài đặt Node.js và Electron**
